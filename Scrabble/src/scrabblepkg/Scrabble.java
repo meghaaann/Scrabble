@@ -49,7 +49,6 @@ public class Scrabble {
 			}
 		}
 		return score;
-
 	}
 
 	private ArrayList<String> getWordsFromFile(String path) {
@@ -62,9 +61,10 @@ public class Scrabble {
 			sc = new Scanner(inputStream, "UTF-8");
 			while (sc.hasNextLine()) {
 				String line = sc.nextLine();
-				words.add(line);
+				if (line.length() <= getSize()) {
+					words.add(line);
+				}
 			}
-			// note that Scanner suppresses exceptions
 			if (sc.ioException() != null) {
 				throw sc.ioException();
 			}
